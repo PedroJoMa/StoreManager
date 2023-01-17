@@ -1,14 +1,14 @@
 [
   {
-    "_id": "aec0647e-243a-4a1c-9a07-5e39d4e64bce",
+    "_id": "bfc31f8e-c9d0-4c72-a9a8-c05c38074c03",
     "colId": "history",
     "containerId": "",
     "name": "localhost:3000/products",
-    "url": "localhost:3000/products/1",
+    "url": "localhost:3000/products/99",
     "method": "GET",
     "sortNum": 0,
-    "created": "2023-01-16T20:53:12.682Z",
-    "modified": "2023-01-16T22:46:07.721Z",
+    "created": "2023-01-17T21:07:58.760Z",
+    "modified": "2023-01-17T21:34:15.288Z",
     "headers": [],
     "params": [],
     "tests": []
