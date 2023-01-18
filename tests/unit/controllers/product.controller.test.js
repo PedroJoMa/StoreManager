@@ -105,6 +105,53 @@ describe('Teste de unidade do productController', function () {
       expect(res.json).to.have.been.calledWith({ message: 'Product not found'});
     });
   });
+
+  describe('Cadastrando um novo produto', function () {
+    it('Verifica se ao enviar dados válidos salva com sucesso', async function () {
+      // arrange
+      const res = {};
+      const req = {
+        body: productMock,
+      };
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      sinon
+        .stub(productService, 'createProduct')
+        .resolves({ type: null, message: newProductMock });
+      
+      // act
+      await productController.createProduct(req, res);
+
+      // assert
+      expect(res.status).to.have.been.calledWith(201);
+      expect(res.json).to.have.been.calledWith(newProductMock);
+    });
+    it('Verifica se ao enviar um nome com menos de 5 caracteres retorna um erro', async function () {
+      // arrange
+      const res = {};
+      const req = {
+        body: {
+          name: 't24b'
+        } 
+      };
+
+      res.status = sinon.stub().returns(res);
+      res.json = sinon.stub().returns();
+
+      sinon
+        .stub(productService, 'createProduct')
+        .resolves({ type: 'INVALID_VALUE', message: '"name" length must be at least 5 characters long' });
+      
+      // act
+      await productController.createProduct(req, res);
+
+      // assert
+      expect(res.status).to.have.been.calledWith(422);
+      expect(res.json).to.have.been.calledWith('"name" length must be at least 5 characters long');
+    });
+  });
   
   afterEach(function () {
     sinon.restore();
