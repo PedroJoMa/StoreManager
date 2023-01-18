@@ -4,6 +4,7 @@ const { productService } = require('../../../src/services');
 const { productModel } = require('../../../src/models');
 const {
   invalidValue,
+  validName,
   allProducts,
 } = require('./mocks/product.service.mock');
 
@@ -19,6 +20,7 @@ describe('Verificando service de produtos', function () {
       expect(result.message).to.deep.equal(allProducts);
     });
   });
+
   describe('Busca por um produto', function () {
     it('retorna um erro caso receba um ID inválido', async function () {
       // act
@@ -53,7 +55,32 @@ describe('Verificando service de produtos', function () {
       expect(result.message).to.deep.equal(allProducts[0]);
     });
   })
-  
+
+  describe('Cadastro de um produto com valores válidos', function () {
+    it('retorna o id do produto cadastrado', async function () {
+      // arrange
+      sinon.stub(productModel, 'insert').resolves(1);
+      sinon.stub(productModel, 'findById').resolves(allProducts[0]);
+
+      // act
+      const result = await productService.createProduct(validName);
+
+      // assert
+      expect(result.type).to.equal(null);
+      expect(result.message).to.deep.equal(allProducts[0]);
+      });
+  });
+
+  describe('Cadastro de um produto com valores inválidos', function () {
+    it('Retorna um erro ao passar um nome inválido', async function () {
+      // act
+      const result = await passengerService.createProduct(invalidValue);
+
+      // assert 
+      expect(result.type).to.equal('INVALID_VALUE');
+      expect(result.message).to.equal('"name" length must be at least 5 characters long')
+    });
+  });
   afterEach(function () {
      sinon.restore();
    });
