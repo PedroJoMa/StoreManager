@@ -36,7 +36,7 @@ describe('Teste de unidade do productController', function () {
   });
 
   describe('Buscando um produto', function () {
-    it('Verifica se ao passar um id inexistente o banco de dados retorna um erro', async function () {
+    it('Verifica se ao passar um id existente o banco de dados retorna o produto', async function () {
       // Arrange
       const res = {};
       const req = {
@@ -78,10 +78,10 @@ describe('Teste de unidade do productController', function () {
       // Avaliamos se chamou `res.status` com o valor 422
       expect(res.status).to.have.been.calledWith(422); 
       // Avaliamos se chamou `res.status` com a mensagem esperada
-      expect(res.json).to.have.been.calledWith('"id" must be a number');
+      expect(res.json).to.have.been.calledWith({ message: '"id" must be a number' });
     });
 
-    it('Verifica se ao passar um id existente o banco deve retorna um erro', async function () {
+    it('Verifica se ao passar um id que não existente o banco deve retorna um erro', async function () {
       // Arrange
       const res = {};
       const req = {
@@ -102,7 +102,7 @@ describe('Teste de unidade do productController', function () {
       // Avaliamos se chamou `res.status` com o valor 404
       expect(res.status).to.have.been.calledWith(404); 
       // Avaliamos se chamou `res.status` com a mensagem esperada
-      expect(res.json).to.have.been.calledWith('Product not found');
+      expect(res.json).to.have.been.calledWith({ message: 'Product not found'});
     });
   });
   
