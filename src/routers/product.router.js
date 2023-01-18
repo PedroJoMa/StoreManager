@@ -1,7 +1,7 @@
 const express = require('express');
 
 const { productController } = require('../controllers');
-const validateNewProduct = require('../middlewares/validateNewProduct');
+const validateNewProductFields = require('../middlewares/validateNewProductFields');
 
 const router = express.Router();
 
@@ -17,7 +17,7 @@ router.get(
 
 router.post(
   '/',
-  validateNewProduct,
+  validateNewProductFields,
   productController.createProduct,
 );
 
