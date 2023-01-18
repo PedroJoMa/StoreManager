@@ -13,6 +13,11 @@ const products = [
   },
 ];
 
+const newProduct = {
+  name: 'Armadura Homem de Ferro',
+};
+
 module.exports = {
   products,
+  newProduct,
 };
