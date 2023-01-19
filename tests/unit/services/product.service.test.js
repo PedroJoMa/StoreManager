@@ -74,7 +74,7 @@ describe('Verificando service de produtos', function () {
   describe('Cadastro de um produto com valores inválidos', function () {
     it('Retorna um erro ao passar um nome inválido', async function () {
       // act
-      const result = await passengerService.createProduct(invalidValue);
+      const result = await productService.createProduct(invalidValue);
 
       // assert 
       expect(result.type).to.equal('INVALID_VALUE');
