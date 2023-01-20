@@ -15,14 +15,21 @@ const findAll = async () => {
       return camelize(result);
 };
 
-// const findById = async (productId) => {
-//   const [[sale]] = await connection.execute(
-//     'SELECT * FROM StoreManager.sales WHERE id = ?',
-//     [productId],
-//   );
+const findById = async (saleId) => {
+  const [sale] = await connection.execute(
+    `
+    SELECT s.date, spdt.product_id, spdt.quantity
+    FROM StoreManager.sales_products AS spdt
+    INNER JOIN StoreManager.sales AS s
+    ON spdt.sale_id = s.id
+    WHERE sale_id = ?
+    ORDER BY sale_id ASC;
+    `,
+    [saleId],
+  );
 
-//   return camelize(sale);
-// };
+  return camelize(sale);
+};
 
 // const insert = async (sale) => {
 //   const columns = Object.keys(snakeize(sale)).join(', ');
@@ -41,6 +48,6 @@ const findAll = async () => {
 
 module.exports = {
   findAll,
-  // findById,
+  findById,
   // insert,
 };

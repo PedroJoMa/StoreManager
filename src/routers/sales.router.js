@@ -9,6 +9,10 @@ router.get(
   '/',
   saleController.listSales,
 );
+router.get(
+  '/:id',
+  saleController.getSale,
+);
 
 // router.post(
 //   '/',
