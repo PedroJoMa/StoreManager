@@ -17,5 +17,33 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "6f994177-77dd-4eed-a1ed-b29181c87640",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/products",
+    "url": "localhost:3000/products",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-01-19T18:56:12.657Z",
+    "modified": "2023-01-20T01:04:59.482Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "b720cae3-0863-40a2-8349-57140f25c679",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/sales",
+    "url": "localhost:3000/sales",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2023-01-20T01:05:13.497Z",
+    "modified": "2023-01-20T01:05:13.497Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]
