@@ -8,7 +8,8 @@ const findAll = async () => {
     SELECT spdt.sale_id, s.date, spdt.product_id, spdt.quantity
     FROM StoreManager.sales_products AS spdt
     INNER JOIN StoreManager.sales AS s
-    ON spdt.sale_id = s.id;
+    ON spdt.sale_id = s.id
+    ORDER BY sale_id ASC;
     `,
   );
       return camelize(result);
