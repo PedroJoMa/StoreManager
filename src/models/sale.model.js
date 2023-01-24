@@ -31,19 +31,39 @@ const findById = async (saleId) => {
   return camelize(sale);
 };
 
+// Função generateDate gera data para inserir um produto no banco de dados;
+// const generateDate = () => {
+//   const d = new Date();
+//   const day = d.getDate();
+//   const month = d.getMonth() + 1;
+//   const year = d.getFullYear();
+//   const hour = d.getHours();
+//   const minutes = d.getMinutes();
+//   const seconds = d.getSeconds();
+//   const date = `${year}-${month}-${day} ${hour}:${minutes}:${seconds}`;
+  
+//   return date;
+// };
+
 // const insert = async (sale) => {
+//   const timeNow = generateDate();
+
 //   const columns = Object.keys(snakeize(sale)).join(', ');
 
 //   const placeholders = Object.keys(sale)
 //     .map((_key) => '?')
 //     .join(', ');
 
-//   const [{ insertId }] = await connection.execute(
-//   `INSERT INTO StoreManager.sales (${columns}) VALUE (${placeholders})`,
-//   [...Object.values(sale)],
+//   const insertTableSales = await connection.execute(
+//     'INSERT INTO StoreManager.sales (date) VALUES (?)',
+//     [timeNow],
 //   );
-    
-//   return insertId;
+
+//   const insertTableSalesProduct = await connection.execute(
+//     'INSERT INTO StoreManager.sales_products () VALUES ()',
+//     [],
+//   );
+
 // };
 
 module.exports = {
@@ -51,3 +71,20 @@ module.exports = {
   findById,
   // insert,
 };
+
+// {
+//   "id": 3,
+//   "itemsSold": [
+//     {
+//       "productId": 1,
+//       "quantity": 1
+//     },
+//     {
+//       "productId": 2,
+//       "quantity": 5
+//     }
+//   ]
+// }
+
+// SELECT COUNT(id)
+// FROM StoreManager.sales;
