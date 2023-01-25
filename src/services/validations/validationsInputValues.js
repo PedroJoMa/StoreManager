@@ -1,3 +1,4 @@
+const { productModel } = require('../../models');
 const { idSchema, addProductSchema, addSaleSchema } = require('./schemas');
 
 const validateId = (id) => {
@@ -26,8 +27,29 @@ const validateNewSale = (productId, quantity) => {
   return { type: null, message: '' };
 };
 
+const validateInputValues = async ({ id, name }) => {
+  const product = await productModel.findById(id);
+  const inputId = validateId(id);
+  const inputName = validateNewProduct(name);
+  
+  if (inputId.type === 'INVALID_VALUE') {
+    return inputId;
+  }
+  
+  if (!product) {
+    return { type: 'PRODUCT_NOT_FOUND', message: 'Product not found' };
+  }
+
+  if (inputName.type === 'INVALID_VALUE') {
+    return inputName;
+  }
+
+  return { type: null, message: '' };
+};
+
 module.exports = {
   validateId,
   validateNewProduct,
   validateNewSale,
+  validateInputValues,
 };

@@ -28,8 +28,22 @@ const createProduct = async (name) => {
   return { type: null, message: newProduct };
 };
 
+const updateById = async ({ id, name }) => {
+  const error = await schema.validateInputValues({ id, name });
+
+  if (error.type) {
+    return error;
+  }
+
+  await productModel.updateById({ id, name });
+  const result = await productModel.findById(id);
+
+  return { type: null, message: result };
+};
+
 module.exports = {
   findAll,
   findById,
   createProduct,
+  updateById,
 };

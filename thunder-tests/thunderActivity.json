@@ -8,12 +8,12 @@
     "method": "POST",
     "sortNum": 0,
     "created": "2023-01-18T22:51:26.981Z",
-    "modified": "2023-01-19T17:56:45.607Z",
+    "modified": "2023-01-25T21:26:21.379Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"ab\"\n}",
+      "raw": "{\n  \"name\": \"Traje Homem Aranha\"\n}",
       "form": []
     },
     "tests": []
@@ -23,11 +23,11 @@
     "colId": "history",
     "containerId": "",
     "name": "localhost:3000/products",
-    "url": "localhost:3000/products",
+    "url": "localhost:3000/products/a",
     "method": "GET",
     "sortNum": 0,
     "created": "2023-01-19T18:56:12.657Z",
-    "modified": "2023-01-20T01:04:59.482Z",
+    "modified": "2023-01-25T21:38:42.728Z",
     "headers": [],
     "params": [],
     "tests": []
@@ -47,48 +47,6 @@
     "tests": []
   },
   {
-    "_id": "834ea91d-421f-4e4c-b932-998a1e969efc",
-    "colId": "history",
-    "containerId": "",
-    "name": "localhost:3000/sales/1",
-    "url": "localhost:3000/sales/1",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2023-01-20T01:37:59.568Z",
-    "modified": "2023-01-20T01:37:59.568Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
-    "_id": "e0c84145-b759-478d-81f1-1f7dc6465dea",
-    "colId": "history",
-    "containerId": "",
-    "name": "localhost:3000/sales/2",
-    "url": "localhost:3000/sales/2",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2023-01-20T01:38:25.861Z",
-    "modified": "2023-01-20T01:38:25.861Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
-    "_id": "b7767cc1-8b22-45e7-a6b2-9268d6ffae40",
-    "colId": "history",
-    "containerId": "",
-    "name": "localhost:3000/sales/34",
-    "url": "localhost:3000/sales/34",
-    "method": "GET",
-    "sortNum": 0,
-    "created": "2023-01-20T01:41:58.197Z",
-    "modified": "2023-01-20T01:41:58.197Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
     "_id": "0654a088-df06-451e-9a06-b3113495db7f",
     "colId": "history",
     "containerId": "",
@@ -100,6 +58,44 @@
     "modified": "2023-01-20T01:42:18.476Z",
     "headers": [],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "682fdfae-ef09-4fc3-8971-74446379abbc",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/products/1",
+    "url": "localhost:3000/products/a",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-01-25T16:33:18.872Z",
+    "modified": "2023-01-25T22:13:44.950Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"garras dr octopus\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "104226d8-06bf-448b-8a7f-44600b8a5ab2",
+    "colId": "history",
+    "containerId": "",
+    "name": "localhost:3000/products/2",
+    "url": "localhost:3000/products/a",
+    "method": "PUT",
+    "sortNum": 0,
+    "created": "2023-01-25T19:26:42.926Z",
+    "modified": "2023-01-25T21:06:18.368Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"name\": \"coxinha\"\n}",
+      "form": []
+    },
     "tests": []
   }
 ]

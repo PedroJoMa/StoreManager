@@ -2,6 +2,7 @@ const express = require('express');
 
 const { productController } = require('../controllers');
 const validateNewProductFields = require('../middlewares/validateNewProductFields');
+const validateUpdateProductFields = require('../middlewares/validateUpdateProductFields');
 
 const router = express.Router();
 
@@ -20,5 +21,17 @@ router.post(
   validateNewProductFields,
   productController.createProduct,
 );
+
+router.put(
+  '/:id',
+  validateNewProductFields,
+  validateUpdateProductFields,
+  productController.changeData,
+);
+
+// router.delete(
+//   '/:id',
+
+// );
 
 module.exports = router;
