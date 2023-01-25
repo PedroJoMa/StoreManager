@@ -41,9 +41,22 @@ const updateById = async ({ id, name }) => {
   return { type: null, message: result };
 };
 
+const deleteById = async (productId) => {
+  const error = await schema.idToDelete(productId);
+
+  if (error.type) {
+    return error;
+  }
+
+  await productModel.deleteById(productId);
+
+  return { type: null, message: '' };
+};
+
 module.exports = {
   findAll,
   findById,
   createProduct,
   updateById,
+  deleteById,
 };

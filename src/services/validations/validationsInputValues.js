@@ -47,9 +47,25 @@ const validateInputValues = async ({ id, name }) => {
   return { type: null, message: '' };
 };
 
+const idToDelete = async (productId) => {
+  const inputId = validateId(productId);
+  const product = await productModel.findById(productId);
+
+  if (inputId.type === 'INVALID_VALUE') {
+    return inputId;
+  }
+
+  if (!product) {
+    return { type: 'PRODUCT_NOT_FOUND', message: 'Product not found' };
+  }
+
+  return { type: null, message: '' };
+};
+
 module.exports = {
   validateId,
   validateNewProduct,
   validateNewSale,
   validateInputValues,
+  idToDelete,
 };
